@@ -1,0 +1,9 @@
+[submodule "rekam-medis-service"]
+	path = rekam-medis-service
+	url = https://github.com/fathyaa/rekam-medis-service.git
+[submodule "rawat-inap-service"]
+	path = rawat-inap-service
+	url = https://github.com/adnadeaa31/rawat-inap-service.git
+[submodule "DataIndividu"]
+	path = DataIndividu
+	url = https://github.com/nyayunajlaapr/DataIndividu.git
