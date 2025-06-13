@@ -7,3 +7,6 @@
 [submodule "DataIndividu"]
 	path = DataIndividu
 	url = https://github.com/nyayunajlaapr/DataIndividu.git
+[submodule "rawat_jalan_service"]
+	path = rawat_jalan_service
+	url = https://github.com/kamiliaputri23/rawat_jalan_service.git
