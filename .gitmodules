@@ -10,3 +10,6 @@
 [submodule "rawat_jalan_service"]
 	path = rawat_jalan_service
 	url = https://github.com/kamiliaputri23/rawat_jalan_service.git
+[submodule "resep-service"]
+	path = resep-service
+	url = https://github.com/fathiadlikhlfh/resep-service.git

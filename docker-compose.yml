@@ -8,17 +8,23 @@ services:
       - ./rekam-medis-service/.env
     restart: unless-stopped
     environment:
-      - RAWATINAP_URL=http://rawat-inap-service:4000/graphql
+      - RAWATINAP_URL=http://rawat-inap-service:8003/graphql
+      - RAWATJALAN_URL=http://rawat-jalan-service:8004/graphql
+      - DATAINDIVIDU_URL=http://data-individu-service:8000/graphql
+      - RESEP_URL=http://resep-service:8002/graphql
 
   rawat-inap-service:
     build: ./rawat-inap-service
     ports:
-      - "4000:4000"
+      - "8003:8003"
     env_file:
       - ./rawat-inap-service/.env
     restart: unless-stopped
     environment:
       - REKAMMEDIS_URL=http://rekam-medis-service:8001/graphql
+      - RAWATJALAN_URL=http://rawat-jalan-service:8004/graphql
+      - DATAINDIVIDU_URL=http://data-individu-service:8000/graphql
+      - RESEP_URL=http://resep-service:8002/graphql
 
   rawat-jalan-service:
       build: ./rawat_jalan_service
@@ -28,12 +34,33 @@ services:
         - ./rawat_jalan_service/backend/.env
       restart: unless-stopped
       environment:
-        - RAWATINAP_URL=http://rawat-inap-service:4000/graphql
+        - RAWATINAP_URL=http://rawat-inap-service:8003/graphql
+        - REKAMMEDIS_URL=http://rekam-medis-service:8001/graphql
+        - DATAINDIVIDU_URL=http://data-individu-service:8000/graphql
+        - RESEP_URL=http://resep-service:8002/graphql
 
-  # data-individu:
-  #   build: ./DataIndividu
-  #   ports:
-  #     - "8002:8002"
-  #   env_file:
-  #     - ./DataIndividu/.env
-  #   restart: unless-stopped
+  data-individu-service:
+    build: ./DataIndividu
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./DataIndividu/.env
+    restart: unless-stopped
+    environment:
+      - REKAMMEDIS_URL=http://rekam-medis-service:8001/graphql
+      - RAWATINAP_URL=http://rawat-inap-service:8003/graphql
+      - RAWATJALAN_URL=http://rawat-jalan-service:8004/graphql
+      - RESEP_URL=http://resep-service:8002/graphql
+
+  resep-service:
+    build: ./resep-service
+    ports:
+      - "8002:8002"
+    env_file:
+      - ./resep-service/.env
+    restart: unless-stopped
+    environment:
+      - REKAMMEDIS_URL=http://rekam-medis-service:8001/graphql
+      - RAWATINAP_URL=http://rawat-inap-service:8003/graphql
+      - RAWATJALAN_URL=http://rawat-jalan-service:8004/graphql
+      - DATAINDIVIDU_URL=http://data-individu-service:8000/graphql
