@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistem Informasi Kesehatan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-2xl rounded-2xl p-10 max-w-xl w-full text-center">
+    <h1 class="text-3xl font-bold text-blue-700 mb-4">Sistem Informasi Kesehatan</h1>
+    <p class="text-gray-600 mb-8">Pilih sistem yang ingin diakses:</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <button
+        onclick="openModal('manajemen')"
+        class="bg-blue-600 text-white py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-blue-700 transition"
+      >
+        Manajemen Kesehatan
+      </button>
+
+      <button
+        onclick="openModal('pelayanan')"
+        class="bg-green-600 text-white py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-green-700 transition"
+      >
+        Pelayanan Kesehatan
+      </button>
+    </div>
+
+    <footer class="mt-10 text-sm text-gray-400">
+      &copy; 2025 Sistem Informasi Kesehatan — IAE
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-96 relative">
+      <h2 id="modalTitle" class="text-xl font-bold mb-4 text-center text-blue-700"></h2>
+      <div id="modalLinks" class="space-y-4 text-center"></div>
+      <button
+        onclick="closeModal()"
+        class="absolute top-2 right-3 text-gray-400 hover:text-red-500 text-xl"
+        title="Tutup"
+      >&times;</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalLinks = document.getElementById('modalLinks');
+
+    function openModal(type) {
+      modal.classList.remove('hidden');
+
+      if (type === 'manajemen') {
+        modalTitle.textContent = 'Manajemen Kesehatan';
+        modalLinks.innerHTML = `
+          <a href="http://localhost:8000" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Data Individu</a>
+          <a href="http://localhost:8001" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Rekam Medis</a>
+        `;
+      } else if (type === 'pelayanan') {
+        modalTitle.textContent = 'Pelayanan Kesehatan';
+        modalLinks.innerHTML = `
+          <a href="http://localhost:8002" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Resep Obat</a>
+          <a href="http://localhost:8003" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Inap</a>
+          <a href="http://localhost:8004" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Jalan</a>
+        `;
+      }
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
