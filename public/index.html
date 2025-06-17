@@ -56,15 +56,15 @@
       if (type === 'manajemen') {
         modalTitle.textContent = 'Manajemen Kesehatan';
         modalLinks.innerHTML = `
-          <a href="http://localhost:8000" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Data Individu</a>
-          <a href="http://localhost:8001" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Rekam Medis</a>
+          <a href="https://gtw-data-individu-service.up.railway.app" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Data Individu</a>
+          <a href="https://gtw-rekam-medis-service.up.railway.app" class="block bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Rekam Medis</a>
         `;
       } else if (type === 'pelayanan') {
         modalTitle.textContent = 'Pelayanan Kesehatan';
         modalLinks.innerHTML = `
           <a href="http://localhost:8002" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Resep Obat</a>
-          <a href="http://localhost:8003" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Inap</a>
-          <a href="http://localhost:8004" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Jalan</a>
+          <a href="https://gtw-rawat-inap-service.up.railway.app" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Inap</a>
+          <a href="https://gtw-rawat-jalan-service.up.railway.app" class="block bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700">Rawat Jalan</a>
         `;
       }
     }
