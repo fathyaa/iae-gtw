@@ -60,12 +60,13 @@ iae-gtw/
 ```bash
 git clone https://github.com/fathyaa/iae-gtw.git
 cd iae-gtw
+git checkout run-local-dev
 docker-compose up --build
 ```
 
 ### Akses:
 
-* [http://localhost:3000](http://localhost:3000) → Landing Page
+* [http://localhost](http://localhost) → Landing Page
 * [http://localhost:8000/graphql](http://localhost:8000/graphql) → Data Individu
 * [http://localhost:8001/graphql](http://localhost:8001/graphql) → Rekam Medis
 * [http://localhost:8002/graphql](http://localhost:8002/graphql) → Resep Obat
@@ -76,38 +77,11 @@ docker-compose up --build
 
 ---
 
-## 🌐 Deploy ke Railway
+## 🌐 Production Env
 
-### Struktur yang dibutuhkan:
+### Akses:
 
-* File `server.js`, `Dockerfile`, dan `package.json` di root.
-
-### Langkah:
-
-1. Push repo ke GitHub.
-2. Hubungkan ke Railway dan deploy.
-3. Landing page akan tersedia di domain Railway.
-
-> Tambahkan script di `server.js` untuk serve static:
-
-```js
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-```
-
----
-
-## 🚧 Deploy ke Fly.io (Opsional)
-
-Untuk tiap microservice:
-
-```bash
-cd rawat-jalan-service
-fly launch --name rawat-jalan-service
-fly deploy
-```
-
-Edit `fly.toml` untuk pastikan `internal_port` sesuai.
+* [http://iae-gtw-production.up.railway.app](http://iae-gtw-production.up.railway.app) → Landing Page
 
 ---
 
